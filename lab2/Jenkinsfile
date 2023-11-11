@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Download Data') {
+            steps {
+                script {
+                    // Скачивание данных из GitHub
+                    echo "----Download Data from GitHub (begin)-----"
+                    git 'https://github.com/GeorgFeiler/MLOps.git'
+                    echo "----Download Data from GitHub (end)-----"
+                }
+            }
+        }
+
+        stage('Run Scripts') {
+            steps {
+                script {
+                    // Запуск скриптов
+                    echo "----Run Scripts (begin)-----"
+                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/create_dataset.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/train_model.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/make_prediction.py'
+                    echo "----Run Scripts (end)-----"
+                }
+            }
+        }
+    }
+}
