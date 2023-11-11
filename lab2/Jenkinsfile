@@ -18,10 +18,10 @@ pipeline {
                 script {
                     // Запуск скриптов
                     echo "----Run Scripts (begin)-----"
-                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_Pipeline/lab1/data_creation.py'
-                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_Pipeline/lab1/data_preprocessing.py'
-                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_Pipeline/lab1/model_preparation.py'
-                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_Pipeline/lab1/model_testing.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab1/data_creation.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab1/data_preprocessing.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab1/model_preparation.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab1/model_testing.py'
                     echo "----Run Scripts (end)-----"
                 }
             }
