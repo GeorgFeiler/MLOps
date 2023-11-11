@@ -18,9 +18,10 @@ pipeline {
                 script {
                     // Запуск скриптов
                     echo "----Run Scripts (begin)-----"
-                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/create_dataset.py'
-                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/train_model.py'
-                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/make_prediction.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/data_creation.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/data_preprocessing.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/model_preparation.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Task2/lab1/model_testing.py'
                     echo "----Run Scripts (end)-----"
                 }
             }
