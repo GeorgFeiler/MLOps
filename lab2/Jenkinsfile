@@ -5,12 +5,13 @@ pipeline {
         stage('Download Data') {
             steps {
                 script {
-                    // Вывод значения переменной lab2
-                    echo "Value of lab2: ${lab2}"
-            
                     // Скачивание данных из GitHub
                     echo "----Download Data from GitHub (begin)-----"
-                    checkout([$class: 'GitSCM', branches: [[name: 'lab2']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]])
+                    dir('master/lab2') {
+                        echo "----Inside the directory 'master/lab2'-----"
+                        // Ваши дополнительные шаги
+                    }
                     echo "----Download Data from GitHub (end)-----"
                 }
             }
