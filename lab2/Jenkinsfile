@@ -10,13 +10,11 @@ pipeline {
             
                     // Скачивание данных из GitHub
                     echo "----Download Data from GitHub (begin)-----"
-                    checkout([$class: 'GitSCM', branches: [[name: 'lab2']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: "origin/${lab2}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]])
                     echo "----Download Data from GitHub (end)-----"
                 }
             }
         }
-
-
 
 
         stage('Data Creation') {
