@@ -7,13 +7,12 @@ pipeline {
                 script {
                     // Скачивание данных из GitHub
                     echo "----Download Data from GitHub (begin)-----"
-                    checkout([$class: 'GitSCM', 
-                              branches: [[name: '*/master']],
-                              doGenerateSubmoduleConfigurations: false, 
-                              extensions: [[$class: 'RelativeTargetDirectory', 
-                                            relativeTargetDir: 'lab2']],
-                              submoduleCfg: [],
-                              userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]])
+                    dir('lab2') {
+                        checkout([$class: 'GitSCM', 
+                                  branches: [[name: '*/master']],
+                                  doGenerateSubmoduleConfigurations: false, 
+                                  userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]])
+                    }
                     echo "----Download Data from GitHub (end)-----"
                 }
             }
