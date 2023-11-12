@@ -7,11 +7,12 @@ pipeline {
                 script {
                     // Скачивание данных из GitHub
                     echo "----Download Data from GitHub (begin)-----"
-                    sh 'git clone https://github.com/GeorgFeiler/MLOps.git --branch master --single-branch'
+                    git branch: 'lab2', url: 'https://github.com/GeorgFeiler/MLOps.git', changelog: true, poll: false, submodules: false, directory: 'lab2'
                     echo "----Download Data from GitHub (end)-----"
                 }
             }
         }
+
 
         stage('Data Creation') {
             steps {
