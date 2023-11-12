@@ -7,7 +7,7 @@ pipeline {
                 script {
                     // Скачивание данных из GitHub
                     echo "----Download Data from GitHub (begin)-----"
-                    sh 'git clone https://github.com/GeorgFeiler/MLOps.git lab2'
+                    git 'https://github.com/GeorgFeiler/MLOps.git'
                     echo "----Download Data from GitHub (end)-----"
                 }
             }
