@@ -7,7 +7,6 @@ pipeline {
                 script {
                     // Скачивание данных из GitHub
                     echo "----Download Data from GitHub (begin)-----"
-                    sh 'rm -rf lab1' // Удаляем предыдущий клон, если есть
                     sh 'git clone https://github.com/GeorgFeiler/MLOps.git --branch master --single-branch'
                     echo "----Download Data from GitHub (end)-----"
                 }
