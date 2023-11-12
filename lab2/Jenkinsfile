@@ -7,11 +7,12 @@ pipeline {
                 script {
                     // Скачивание данных из GitHub
                     echo "----Download Data from GitHub (begin)-----"
-                    git branch: 'lab2', url: 'https://github.com/GeorgFeiler/MLOps.git', changelog: true, poll: false, submodules: false, directory: 'lab2'
+                    checkout([$class: 'GitSCM', branches: [[name: 'lab2']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]])
                     echo "----Download Data from GitHub (end)-----"
                 }
             }
         }
+
 
 
         stage('Data Creation') {
