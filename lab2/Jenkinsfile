@@ -19,7 +19,7 @@ pipeline {
                 script {
                     // Запуск скрипта
                     echo "----Data Creation (begin)-----"
-                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab1/data_creation.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab2/data_creation.py'
                     echo "----Data Creation (end)-----"
                 }
             }
@@ -29,7 +29,7 @@ pipeline {
                 script {
                     // Запуск скрипта
                     echo "----Data Preprocessing (begin)-----"
-                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab1/data_preprocessing.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab2/data_preprocessing.py'
                     echo "----Data Preprocessing (end)-----"
                 }
             }
@@ -39,7 +39,7 @@ pipeline {
                 script {
                     // Запуск скрипта
                     echo "----Model Preparation (begin)-----"
-                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab1/model_preparation.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab2/model_preparation.py'
                     echo "----Model Preparation (end)-----"
                 }
             }
@@ -49,7 +49,7 @@ pipeline {
                 script {
                     // Запуск скрипта
                     echo "----Model Testing (begin)-----"
-                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab1/model_testing.py'
+                    sh 'python3 /var/lib/jenkins/workspace/Jenkins_lab2/lab2/model_testing.py'
                     echo "----Model Testing (end)-----"
                 }
             }
