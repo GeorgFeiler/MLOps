@@ -8,14 +8,16 @@ pipeline {
                     // Скачивание данных из подкаталога lab2 на GitHub
                     echo "----Download Data from GitHub (begin)-----"
                     checkout([
-                        $class: 'GitSCM', 
-                        branches: [[name: 'master']], 
-                        doGenerateSubmoduleConfigurations: false, 
+                        $class: 'GitSCM',
+                        branches: [[name: 'master']],
+                        doGenerateSubmoduleConfigurations: false,
                         extensions: [
                             [$class: 'PathRestriction', includedRegions: 'lab2/**']
-                        ], 
-                        userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]
+                        ],
+                        userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']],
+                        path: 'master/lab2' // Это позволит Jenkins скачать только содержимое подкаталога "lab2"
                     ])
+
 
                     echo "----Download Data from GitHub (end)-----"
 
