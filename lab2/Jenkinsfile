@@ -7,7 +7,7 @@ pipeline {
                 script {
                     // Скачивание данных из подкаталога lab2 на GitHub
                     echo "----Download Data from GitHub (begin)-----"
-                    checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'PathRestriction', excludedUsers: [], includedRegions: [['lab2/*']]]], userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'PathRestriction', includedRegions: 'lab2/**']]], userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]])
                     echo "----Download Data from GitHub (end)-----"
 
                     // Дальнейшие шаги
