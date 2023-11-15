@@ -2,6 +2,14 @@ pipeline {
     agent any
     
     stages {
+        stage('Delete Data') {
+            steps {
+                script {
+                    // Удаление всех файлов и папок, кроме lab2
+                    sh 'rm -rf !(lab2)'
+                }
+            }
+        }
 
 
         stage('Data Creation') {
