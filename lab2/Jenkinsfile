@@ -6,7 +6,9 @@ pipeline {
             steps {
                 script {
                     // Удаление всех файлов и папок, кроме lab2
+                    echo "----Delete Data in Project (begin)-----"
                     sh 'rm -rf !(lab2)'
+                    echo "----Delete Data in Project (end)-----"
                 }
             }
         }
