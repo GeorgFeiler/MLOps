@@ -2,6 +2,24 @@ pipeline {
     agent any
     
     stages {
+        stage('Download Data') {
+            steps {
+                script {
+                    // Скачивание данных из GitHub
+                    echo "----Download Data from GitHub (begin)-----"
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: 'master']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [
+                            [$class: 'PathRestriction', excludedUsers: [], includedRegions: [['lab2/*']]]
+                        ],
+                        userRemoteConfigs: [[url: 'https://github.com/GeorgFeiler/MLOps.git']]
+                    ])
+                    echo "----Download Data from GitHub (end)-----"
+                }
+            }
+        }
 
 
         stage('Data Creation') {
