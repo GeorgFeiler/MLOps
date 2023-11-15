@@ -2,13 +2,11 @@ pipeline {
     agent any
     
     stages {
-        stage('Delete Data') {
+        stage('Download Data') {
             steps {
                 script {
                     // Удаление всех файлов и папок, кроме lab2
-                    echo "----Delete Data in Project (begin)-----"
-                    sh 'rm -rf !(lab2)'
-                    echo "----Delete Data in Project (end)-----"
+                    sh 'cd /var/lib/jenkins/workspace/Jenkins_lab2 && find . -mindepth 1 -maxdepth 1 ! -name lab2 -exec rm -rf {} +'
                 }
             }
         }
