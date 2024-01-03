@@ -1,11 +1,18 @@
-FROM python:3.10
+# Использование официального образа Python в качестве базового
+FROM python:3.8-slim
 
+# Установка рабочего каталога в контейнере
 WORKDIR /app
 
-COPY requirements.txt /app
-RUN pip install -r requirements.txt
+# Копирование файла зависимостей и установка зависимостей
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app
+# Копирование исходного кода в контейнер
+COPY . .
 
-CMD ["python3", "app.py"]
+# Указание порта, который будет открыт
+EXPOSE 5000
 
+# Команда для запуска приложения
+CMD ["python", "./app.py"]
